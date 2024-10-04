@@ -130,7 +130,10 @@ def create_user_form() -> rx.Component:
             rx.input(
                 placeholder='Teléfono',
                 name="phone"
-            ),
+            ), 
+            rx.dialog.close(
+                rx.button('Guardar', type='submit')
+                ),
             
         ),
         on_submit=UserState.create_user,
@@ -146,18 +149,14 @@ def create_user_dialog_component() -> rx.Component:
                 justify='center',
                 align='center',
                 direction='column',
-            ),
-            rx.flex(
-                rx.dialog.close(
-                rx.button('Guardar', type='submit')
-                ),
-                rx.dialog.close(
-                    rx.button('Cancelar', color_scheme='gray', variant='soft')
-                ),                
-                spacing="3",
-                margin_top="16px",
-                justify="end",
-            ),
+            ),                         
+            rx.dialog.close(
+                rx.button('Cancelar', color_scheme='gray', variant='soft')
+            ),                
+            spacing="3",
+            margin_top="16px",
+            justify="end",
+           
             style={'width':'300px'}
         ),
     )
